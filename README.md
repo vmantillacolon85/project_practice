@@ -1,7 +1,7 @@
 # project_practice
-We're practicing git and github. 
+We're practicing git and github.
 
-Today we. 
+Today we.
 - Created some folders
 - Wrote a program
-- Solved a problem 
+- Solved a problem
