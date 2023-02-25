@@ -1,4 +1,4 @@
-Write a query that will list all of the genre names 
+--1.  Write a query that will list all of the genre names 
 --and a count of the tracks for each genre.   
 --Sort the list by largest track count to smallest. 
 
@@ -10,7 +10,7 @@ GROUP BY g.name
 ORDER BY GenreTrackCount DESC
 
 
---6.Write a query that will list all of the track names 
+--2.  Write a query that will list all of the track names 
 --and the album names from the artist named ‘Jamiroquai’.
 
 SELECT a.name as Artist,t.name as Track, al.Title as Album
@@ -21,7 +21,7 @@ JOIN Track t
 ON al.AlbumId = t.AlbumId 
 WHERE Artist= 'Jamiroquai'
 
-----7. Write a query that will determine the top 5 countries measured 
+----3. Write a query that will determine the top 5 countries measured 
 --by total revenue (dollars) sold by billing country.   
 --Include country and total revenue.
 
@@ -36,7 +36,7 @@ LIMIT 5
 
 ----------
 
---8. Write a query that determines the total sales by global region.  
+--4. Write a query that determines the total sales by global region.  
 --Use ‘Asia Pacific’ for India and Australia, 
 --‘North America’ for Canada and the USA, 
 --‘South America’ for Chile, Brazil and Argentina,
@@ -52,7 +52,7 @@ FROM Invoice i
 
 
 
---9. Write a query that lists the artists that don’t have albums. 
+--5. Write a query that lists the artists that don’t have albums. 
 
 SELECT a.Name AS Artist,a.ArtistId, al.Title AS Album
 FROM Artist a
@@ -62,7 +62,7 @@ WHERE Album IS NULL
 
 
 
---10.  Write a query that lists all the invoice amounts, their billing country, 
+--6.  Write a query that lists all the invoice amounts, their billing country, 
 --and total amount of revenue from that country.  
 --Sort largest to smallest
 
