@@ -11,3 +11,4 @@ from products p
 join order_details od on p.product_id = od.product_id
 where product_name  like '%Coffee%'
 group by product_name
+
