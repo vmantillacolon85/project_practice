@@ -1,1 +1,13 @@
 
+--Great! I want to know about the suplier(s) of our coffee. What are their names and where are they based?
+select s.company_name, s.city 
+from products p 
+join suppliers s ON p.supplier_id = s.supplier_id 
+where product_name like '%Coffee%'
+​
+--Cool! How much coffee are we selling? What are our total sales?
+select p.product_name as ProductName, SUM(od.quantity), Round(cast(SUM((od.quantity*od.unit_price)*(1-od.discount)) as numeric),2) as TotalSales
+from products p 
+join order_details od on p.product_id = od.product_id
+where product_name  like '%Coffee%'
+group by product_name
