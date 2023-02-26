@@ -78,4 +78,25 @@ FROM products p
 JOIN categories c ON c.category_id = p.category_id
 ​
 ​
+
+
+-----------
+
+Write a query that will list all of the genre names and a count of the tracks for each genre.   
+--Sort the list by largest track count to smallest.  
+​
+Select g.Name, Count(t.TrackId) AS NumOfTracks
+FROM Genre g 
+JOIN Track t on g.GenreId = t.GenreId 
+GROUP BY 1
+ORDER BY 2 DESC ;
+​
+--Write a query that will list all of the track names 
+--and the album names from the artist named ‘Jamiroquai’.
+​
+Select a2.Name as ArtistName, t.Name as TrackName, a.Title as AlbumName
+FROM Track t 
+JOIN Album a on t.AlbumId = a.AlbumId 
+JOIN Artist a2 on a.ArtistId = a2.ArtistId 
+WHERE a2.Name = 'Jamiroquai'; 
 ​
