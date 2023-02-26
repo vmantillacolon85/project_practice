@@ -139,6 +139,21 @@ select e2.Title,  e2.FirstName, e2.LastName, e.Title,  e.LastName
 from Employee e 
 inner join Employee e2 on e.EmployeeId = e2.ReportsTo 
 
-
+--Show the list of artists in our database that don't have albums 
+SELECT *
+FROM Artist a
+LEFT JOIN Album ab
+ON a.ArtistId = ab.ArtistId
+WHERE AlbumID IS NULL
+​
+--Write a query that lists the top 10 largest invoice amounts, 
+--their billing country, and total amount of revenue from that country.  
+​
+with InvoiceCountry as (select BillingCountry, total
+from Invoice i 
+)
+select BillingCountry,Total, SUM(Total) OVER(PARTITION BY BillingCountry) AS TotalCountryRevenue
+from InvoiceCountry
+order by total DESC; 
 
 ​
