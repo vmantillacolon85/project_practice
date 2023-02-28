@@ -98,6 +98,25 @@ join payment p
 on c.customer_id = p.customer_id 
 group by c.store_id 
 
+--8. What is the name and email of the manager of the store 
+--that has the customer with the highest lifetime purchase amount?
+
+
+with cte as (
+select concat(c.first_name, ' ', c.last_name) as names, c.customer_id, p.staff_id, sum(p.amount)
+from payment p 
+join customer c 
+on p.customer_id = c.customer_id 
+group by names, 2, 3
+order by 4 desc ---highest customer_id = 137
+)
+select distinct concat(s.first_name, ' ', s.last_name), s.email  
+from cte
+join staff s 
+on s.staff_id = cte.staff_id
+--where customer_id = 137
+
+
 
 
 
