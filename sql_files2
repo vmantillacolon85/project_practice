@@ -117,6 +117,17 @@ on s.staff_id = cte.staff_id
 --where customer_id = 137
 
 
+--9. On average, except for NC-17 films,how much does each film rent for, by rating?
+
+
+
+select f.film_id, f.title, f.rating, avg(f.rental_rate) as Avg_Rental_Rate
+from film f
+where f.rating in ('G', 'PG-13', 'R')
+group by f.film_id
+order by rating 
+
+
 
 
 
