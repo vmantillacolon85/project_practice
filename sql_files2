@@ -88,6 +88,18 @@ group by s.store_id, p.customer_id
 order by s.store_id desc
 --HOW TO GET A SUM TOTAL FOR ALL NOT INDIVIDUAL ONES??
 
+-----
+--7. Which store has made the most money from renting dvds?
+
+
+select c.store_id, sum(p.amount)
+from customer c 
+join payment p
+on c.customer_id = p.customer_id 
+group by c.store_id 
+
+
+
 
 
 
