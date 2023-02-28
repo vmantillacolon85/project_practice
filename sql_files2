@@ -39,4 +39,42 @@ order by rating
 --------
 --3. Get the customer ID's of the top 5 customers, by money spent.
 
+select p.customer_id, sum(p.amount) as money_spent
+from payment p
+group by p.customer_id
+order by 2 desc
+limit 5
+
+-----
+--4. Return the customer IDs of customers who have spent at least $110 
+-- with the staff member who has an ID of 2.
+
+select p.customer_id, p.staff_id, sum(p.amount) as money_spent
+from payment p
+where p.amount >= '110' and p.staff_id = '2' 
+group by p.customer_id, p.staff_id
+
+select p.customer_id, p.staff_id, sum(p.amount) as money_spent
+from payment p
+where p.staff_id = '2'
+group by p.customer_id, p.staff_id 
+having sum(p.amount) >= 110
+order by 2 DESC
+
+
+
+---
+--5. Find the names and the payment amounts for customers 
+-- with a lifetime purchase amount of greater than $150.
+
+select c.first_name , c.last_name, sum(p.amount) as money_spent
+from customer c 
+join payment p 
+on c.customer_id = p.customer_id 
+group by c.first_name, c.last_name 
+having sum(p.amount) > 150
+order by sum(p.amount) desc
+
+
+
 
