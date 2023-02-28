@@ -12,3 +12,31 @@ join order_details od on p.product_id = od.product_id
 where product_name  like '%Coffee%'
 group by product_name
 
+
+------------
+
+select * 
+from payment
+
+select
+from payment
+----------
+--1. Per employee, how much revenue has each employee realized from DVD rentals,
+-- and how many transactions have each employee handled?
+*
+select p.staff_id, sum(p.amount) as revenue, count(p.payment_id) as number_transactions
+from payment p
+group by p.staff_id
+
+----
+--2. Figure out the average replacement cost of our movies, by rating.
+
+select f.film_id, f.title, f.rating, avg(f.replacement_cost) as Avg_Replacment_Cost
+from film f
+group by f.film_id
+order by rating 
+
+--------
+--3. Get the customer ID's of the top 5 customers, by money spent.
+
+
