@@ -75,6 +75,20 @@ group by c.first_name, c.last_name
 having sum(p.amount) > 150
 order by sum(p.amount) desc
 
+--
+--6. Which store has served the most customers?
+
+select s.store_id, count(p.customer_id)
+from store s 
+join staff s2
+on s.store_id = s2.store_id 
+join payment p 
+on s2.staff_id = p.staff_id 
+group by s.store_id, p.customer_id 
+order by s.store_id desc
+--HOW TO GET A SUM TOTAL FOR ALL NOT INDIVIDUAL ONES??
+
+
 
 
 
